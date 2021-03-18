@@ -1,0 +1,29 @@
+<h1>Register an swagger Account</h1>
+
+<form [formGroup]="contactForm" >
+    <!-- (ngSubmit)="sendData()" -->
+
+    <p>
+        <label for="userName">User Name</label><br>
+        <input type="text" [(ngModel)]=users.userName name="userName" formControlName="userName" required />
+    </p>
+    <p>
+        <label for="email">Email</label><br>
+        <input type="text" [(ngModel)]=users.email name="email" formControlName="email" required /> </p>
+    <p>
+        <label for="password">Password</label><br>
+        <input type="password" [(ngModel)]=users.password name="password" formControlName="password" required /> </p>
+    <p>
+        <label for="confirmPassword">Confirm Password</label><br>
+        <input type="password" [(ngModel)]=users.confirmPassword name="confirmPassword" formControlName="confirmPassword" required /> </p>
+    <!-- {{contactForm | json}} -->
+    <!-- <button type="submit" [disabled]="contactForm.invalid">Register</button> -->
+
+    <button type="submit" (click)="sendData()">Register</button>
+
+    <a [routerLink]="['/login']">Login</a>
+
+    </form>
+
+    
+
