@@ -3,14 +3,11 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "UserManagement": {
+    "UserManagementSwagger": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
-        },
-        "@schematics/angular:application": {
-          "strict": true
         }
       },
       "root": "",
@@ -20,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/UserManagement",
+            "outputPath": "dist/UserManagementSwagger",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -31,7 +28,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           },
@@ -53,13 +51,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
                 }
               ]
             }
@@ -68,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "UserManagement:build"
+            "browserTarget": "UserManagementSwagger:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "UserManagement:build:production"
+              "browserTarget": "UserManagementSwagger:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "UserManagement:build"
+            "browserTarget": "UserManagementSwagger:build"
           }
         },
         "test": {
@@ -116,16 +114,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "UserManagement:serve"
+            "devServerTarget": "UserManagementSwagger:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "UserManagement:serve:production"
+              "devServerTarget": "UserManagementSwagger:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "UserManagement"
+  "defaultProject": "UserManagementSwagger"
 }

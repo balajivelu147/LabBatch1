@@ -1,0 +1,28 @@
+<div>
+    <h1>Users List <button class="btn btn-outline-primary" routerLink ="['home','adduser']">Add User</button>
+        <button (click)="logOut()" style="margin: 10px 15px 0 0;" type="button" class="btn btn-secondary float-right">Logout</button>
+    </h1>
+
+
+<!-- {{userDetailList | json}} -->
+<div >
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Id:</th>
+            <th scope="col">Email:</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of userDetailList">
+            <td>{{user.id}}</td>
+            <td>{{user.email}}</td>
+
+            <button routerLink="/home/{{user.id}}"   type="button" class="btn btn-secondary">Edit</button>
+            <button routerLink="/home/{{user.id}}" type="button" class="btn btn-danger">Delete</button>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+</div>
