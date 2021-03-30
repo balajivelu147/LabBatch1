@@ -1,0 +1,46 @@
+
+
+<form [formGroup]="registrationForm"   (ngSubmit)="onsubmit()"><br><br>
+
+    <div class="form-group required">
+        <label>username</label><br>
+        <input type="username" formControlName="userName"><br><br>
+    </div>
+
+    <div class="form-group">
+        <label>email</label><br>
+        <input type="email" formControlName="Email"><br><br>
+         <span *ngIf="registrationForm.get('Email').hasError('required')">enter email adress</span>
+        <span *ngIf="registrationForm.get('Email').hasError('email')">enter valid email </span> 
+    </div>
+
+    <div class="form-group required">
+        <label>password</label><br>
+        <input type="password" formControlName="Password"><br><br>
+         <span *ngIf="registrationForm.get('Password'). hasError('required')">min 4chrectors</span> 
+
+    </div>
+    
+
+    <div class="form-group required">
+        <label>confirm password</label><br>
+        <input type="confirm password" formControlName="confirmPassword"><br><br>
+
+    </div>
+
+    <button type="submit">submit</button>
+
+</form>
+
+ <h1>create new users</h1>
+<ul>
+    <li *ngFor="let users of usersList">
+ Username:  {{users.userName}}<br>
+<!-- 
+ email:  {{users.Email}}<br>
+password:  {{users.Password}}<br>
+confirmPassword: {{users.confirmPassword}}<br>  -->
+    </li>
+</ul>
+<div *ngIf="msgTrue">user add sucessfully</div>
+<button (click)="addNewUsers(form)"> Add new users</button>
